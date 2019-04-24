@@ -1,55 +1,146 @@
 #include <iostream>
-#include <iostream>
-using namespace std;
 
 using namespace std;
 
 class Pessoa{
-     string nome;
-     int telefone;
-     char sexo;
-     int idade;
-
-     void setNome(string nome)
+     private: string nome;
+     private: int telefone;
+     private: string sexo;
+     private: int idade;
+		 
+	 public: void setNome(string Nome)
      {
-        nome = nome;
+        nome = Nome;
      }
  
-     string getNome()
+     public: string getNome()
      {
         return nome;
      }	
 	
-     void setTelefone(int telefone)
+     public: void setTelefone(int Telefone)
      {
-        telefone = telefone;
+        telefone = Telefone;
      }
  
-     int getTelefone()
+     public: int getTelefone()
      {
         return telefone;
      }
 
-     void setIdade(int idade)
+     public: void setIdade(int Idade)
      {
-        idade = idade;
+        idade = Idade;
      }
  
-     int getIdade()
+     public: int getIdade()
      {
         return idade;
      }
 
-     void setSexo(char sexo)
+     public: void setSexo(string Sexo)
      {
-        sexo = sexo;
+        sexo = Sexo;
      }
  
-     int getSexo()
+     public: string getSexo()
      {
         return sexo;
      }
+	 
+	 
+};
+ 
+ 
+class Medico : public Pessoa{
+ 
+  private: string CRM;
+  private:string especialidade;
+ 
+  public: void inserir(string nome, int idade, int telefone, string sexo, string esp,string crm){
+		setNome(nome);
+		setIdade(idade);
+		setTelefone(telefone);
+		setSexo(sexo);
+		setEspecialidade(esp);
+		setCRM(crm);
+  }
 
- };
+  public: void listar(){
+    cout << " Nome: ";
+	cout << getNome()<<endl;
+	cout << " Idade: ";
+	cout << getIdade()<<endl;
+	cout << " Telefone: ";
+	cout << getTelefone()<<endl;
+	cout << " Sexo: ";
+	cout << getSexo()<<endl;
+	
+	cout << " Especialidade: ";
+	cout << getEspecialidade()<<endl;
+	cout << " CRM: ";
+	cout << getCRM()<<endl;  
+  }
+  
+  public: void setEspecialidade(string esp)
+  {
+  	especialidade = esp;
+  }
+ 
+  public: string getEspecialidade()
+  {
+       return especialidade;
+  }
 
+  public: void setCRM(string crm)
+  {
+  	CRM = crm;
+  }
+ 
+  public: string getCRM()
+  {
+       return CRM;
+  }  	
+
+};
+
+class Paciente : public Pessoa {
+   
+  public: void inserir(string nome, int idade, int telefone, string sexo, string convenio){
+		setNome(nome);
+		setIdade(idade);
+		setTelefone(telefone);
+		setSexo(sexo);
+		setConvenio(convenio);
+  }  
+  
+  public: void listar(){
+    cout << " Nome: ";
+	cout << getNome()<<endl;
+	cout << " Idade: ";
+	cout << getIdade()<<endl;
+	cout << " Telefone: ";
+	cout << getTelefone()<<endl;
+	cout << " Sexo: ";
+	cout << getSexo()<<endl;
+	
+	cout << " Convenio: ";
+	cout << getConvenio()<<endl;
+  }
+  
+	  
+  private: string convenio;
+
+  public: void setConvenio(string Convenio)
+  {
+  	convenio = Convenio;
+  }
+ 
+  public: string getConvenio()
+  {
+       return convenio;
+  }
+  
+};
+ 
  //g++ main.cpp -o main.o 
